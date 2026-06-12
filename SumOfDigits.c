@@ -1,15 +1,25 @@
 #include <stdio.h>
-int main () {
-   int i,rev = 0;
-   printf("Enter the number to find reverse:");
-   scanf("%d",&i);
-    while(i > 0){
-        rev = (rev*10)+ i%10;
-        i = i/10;
-    }
-    printf("\nReverse = %d",rev);
-     return 0;
+int main() {
+    int number, rem, sum = 0;
+    printf("Enter an integer: ");
+    scanf("%d", &number);
 
+    if (number < 0) {
+        number = -number;
+    }
+
+    while (number != 0) {
+        rem = number % 10; 
+        sum = sum + rem;   
+        number = number / 10;    
+    }
+
+    printf("Sum of digits = %d\n", sum);
+
+    return 0;
 }
+
+
+
 
 
