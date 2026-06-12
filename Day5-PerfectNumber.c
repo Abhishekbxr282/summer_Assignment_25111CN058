@@ -1,34 +1,26 @@
-
 #include <stdio.h>
+
 int main() {
-	int num, temp, remainder, sum = 0, fact, i;
+    int num, sum = 0;
+    printf("Enter a positive integer: ");
+    scanf("%d", &num);
 
-	printf("Enter a number: ");
-	scanf("%d", &num);
-	temp = num;
-	while (temp > 0) {
+    if (num <= 1) {
+        printf("%d is not a perfect number.\n", num);
+        return 0;
+    }
 
-		remainder = temp % 10;
+    for (int i = 1; i <= num / 2; i++) {
+        if (num % i == 0) {
+            sum += i; // Add divisor to sum
+        }
+    }
 
-		fact = 1;
+    if (sum == num) {
+        printf("%d is a perfect number.\n", num);
+    } else {
+        printf("%d is not a perfect number.\n", num);
+    }
 
-		i = 1;
-		
-		while (i <= remainder) {
-			fact *= i;
-			i++;
-		}
-       
-		sum += fact;
-		
-		temp /= 10;   
-	}
-
-	if (sum == num) {
-		printf("%d is a strong number.\n", num);
-	} else {
-		printf("%d is not a strong number.\n", num);
-	}
-
-	return 0;
+    return 0;
 }
