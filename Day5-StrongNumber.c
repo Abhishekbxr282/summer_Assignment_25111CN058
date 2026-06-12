@@ -1,15 +1,34 @@
 
 #include <stdio.h>
 int main() {
-	int num,count;
-  printf("Enter the number:\n");
-  scanf("%d",&num);
+	int num, temp, remainder, sum = 0, fact, i;
 
-  printf("Factors of %d are\n",num);
-  for(count = 1; count == 0)
-  {
-    if(num % count == 0)
-    printf("%d\n",count);
-  }
-  return 0;
+	printf("Enter a number: ");
+	scanf("%d", &num);
+	temp = num;
+	while (temp > 0) {
+
+		remainder = temp % 10;
+
+		fact = 1;
+
+		i = 1;
+		
+		while (i <= remainder) {
+			fact *= i;
+			i++;
+		}
+       
+		sum += fact;
+		
+		temp /= 10;   
+	}
+
+	if (sum == num) {
+		printf("%d is a strong number.\n", num);
+	} else {
+		printf("%d is not a strong number.\n", num);
+	}
+
+	return 0;
 }
