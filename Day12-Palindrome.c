@@ -1,36 +1,23 @@
 #include <stdio.h>
-#include <math.h>
-
 int main() {
-    int num, originalNum, remainder, digits = 0;
-    double result = 0.0;
-
-    printf("Enter an integer: ");
-    scanf("%d", &num);
-
-    originalNum = num;
-
-    while (originalNum != 0) {
-        originalNum /= 10;
-        digits++;
-    }
-
-    originalNum = num;
-
-    while (originalNum != 0) {
-        remainder = originalNum % 10;
-        
-        result += round(pow(remainder, digits)); 
-        
-        originalNum /= 10;
-    }
-
-    if ((int)result == num)
-        printf("%d is an Armstrong number.\n", num);
+   int i,x,rev=0;
+   printf("\nEnter no. to check ");
+   scanf("%d",&i);
+   x=i;
+   while(i>0)
+   {
+    rev = (rev*10)+i%10;
+    i= i/10;
+   }
+   if(rev==x)
+     printf("Palindrome");
     else
-        printf("%d is not an Armstrong number.\n", num);
+     printf("Not Palindome");
+   return 0;
+    }
 
-    return 0;
-}
+
+
+
 
       
