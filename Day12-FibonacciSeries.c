@@ -1,33 +1,28 @@
 #include <stdio.h>
 int main() {
-	int num, temp, remainder, sum = 0, fact, i;
+    int i, n;
+    int t1 = 0, t2 = 1;
+    int nextTerm = t1 + t2;
 
-	printf("Enter a number: ");
-	scanf("%d", &num);
-	temp = num;
-	while (temp > 0) {
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
 
-		remainder = temp % 10;
+    if (n >= 1) {
+        printf("%d", t1);
+    }
+    if (n >= 2) {
+        printf(", %d", t2);
+    }
 
-		fact = 1;
+    for (i = 3; i <= n; ++i) {
+        printf(", %d", nextTerm);
+        t1 = t2;
+        t2 = nextTerm;
+        nextTerm = t1 + t2;
+    }
 
-		i = 1;
-		
-		while (i <= remainder) {
-			fact *= i;
-			i++;
-		}
-       
-		sum += fact;
-		
-		temp /= 10;   
-	}
-
-	if (sum == num) {
-		printf("%d is a strong number.\n", num);
-	} else {
-		printf("%d is not a strong number.\n", num);
-	}
-
-	return 0;
+    printf("\n");
+    return 0;
 }
+
+	
