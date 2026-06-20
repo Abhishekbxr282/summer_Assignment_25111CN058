@@ -28,7 +28,7 @@ int main() {
     printf("\n--- Column-wise Sum ---\n");
     
     for (j = 0; j < cols; j++) {
-        colSum = 0; // Reset sum for each new column
+        colSum = 0;
         for (i = 0; i < rows; i++) {
             colSum += matrix[i][j];
         }
